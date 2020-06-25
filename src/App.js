@@ -11,7 +11,6 @@ class App extends Component {
   }
 
   changeNames = () => {
-    console.log("working")
     this.setState({persons: [
       {name: "Daniel", hobbies:'golf'},
       { name: 'Johnny', hobbies: 'tennis'}
