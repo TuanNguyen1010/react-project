@@ -24,8 +24,12 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <button onClick={this.changeNames}> Switch Name</button>
-        <Person name={this.state.persons[0].name} hobbies={this.state.persons[0].hobbies}/>
-        <Person name={this.state.persons[1].name} hobbies={this.state.persons[1].hobbies}/>
+        <Person 
+          name={this.state.persons[0].name} 
+          hobbies={this.state.persons[0].hobbies}/>
+        <Person 
+        name={this.state.persons[1].name} 
+        hobbies={this.state.persons[1].hobbies}/>
       </div>
     );
   }
