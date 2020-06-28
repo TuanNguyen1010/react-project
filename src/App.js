@@ -7,7 +7,8 @@ class App extends Component {
     persons: [
       { name: 'Danny', hobbies:'golf'},
       { name: 'John', hobbies: 'tennis'}
-    ]
+    ],
+    showPersons: false
   }
 
   changeNames = (fullname) => {
@@ -17,6 +18,11 @@ class App extends Component {
     ]
     })
   }
+
+  togglePersonName = () => {
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -29,7 +35,8 @@ class App extends Component {
           hobbies={this.state.persons[0].hobbies}/>
         <Person 
         name={this.state.persons[1].name} 
-        hobbies={this.state.persons[1].hobbies}/>
+        hobbies={this.state.persons[1].hobbies}
+        click={() => this.changeNames("Daniel")}/>
       </div>
     );
   }

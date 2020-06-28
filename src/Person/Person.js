@@ -7,7 +7,7 @@ const person = (props) => {
   })
   return (
     <div> 
-    <p> My name is {props.name} and I like {props.hobbies} </p>
+    <p onClick={props.click}> My name is {props.name} and I like {props.hobbies} </p>
     <p className="Default-tag"> spare name: {spareState.default}</p>
     </div>
   )
