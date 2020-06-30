@@ -11,18 +11,15 @@ class App extends Component {
     showPersons: true
   }
 
-  changeNames = (fullname) => {
-    this.setState({persons: [
-      {name: fullname, hobbies:'golf'},
-      { name: 'John', hobbies: 'tennis'}
-    ]
-    })
+  togglePersonState = () => {
+    const doesShow = this.state.showPersons
+    this.setState({showPersons: !doesShow})
   }
 
-  togglePersonState = () => {
-    console.log("button pressed")
-    const personState = this.state.showPersons
-    this.setState({showPersons: !personState})
+  deletePersonHandler = (personIndex) => {
+    const persons = [...this.state.persons]
+    persons.splice(personIndex, 1)
+    this.setState({persons: persons})
   }
 
   render() {
@@ -31,13 +28,12 @@ class App extends Component {
     if (this.state.showPersons) {
     persons = (
       <div>
-        <Person 
-          name={this.state.persons[0].name} 
-          hobbies={this.state.persons[0].hobbies}/>
-        <Person 
-        name={this.state.persons[1].name} 
-        hobbies={this.state.persons[1].hobbies}
-        click={this.changeNames.bind(this, "Danny")}/>
+        {this.state.persons.map((person, index) => (
+          <Person
+          click={() => {this.deletePersonHandler(index)}}
+          name={person.name}
+          hobbies={person.hobbies}/> )
+        )}
         </div>)}
 
     return (
