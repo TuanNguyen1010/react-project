@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person'
+import Validation from './Validation/validation'
 
 class App extends Component {
   state = {
@@ -8,7 +9,8 @@ class App extends Component {
       { id: 1, name: 'Danny', hobbies:'golf'},
       { id: 2, name: 'John', hobbies: 'tennis'}
     ],
-    showPersons: true
+    showPersons: true,
+    storyInput: ""
   }
 
   togglePersonState = () => {
@@ -39,6 +41,10 @@ class App extends Component {
     this.setState({ persons: persons})
   }
 
+  storyInputHandler = (event) => {
+    this.setState({storyInput: event.target.value})
+  }
+
   render() {
 
     let persons = null;
@@ -60,9 +66,17 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <button onClick={this.togglePersonState}> Switch Name</button>
+        <button onClick={this.togglePersonState}> Toggle Name</button>
         {persons}
-        
+
+        <br/> 
+        <input 
+          type="text" 
+          onChange={(event) => this.storyInputHandler(event)}/>
+        <br/> 
+        {this.state.storyInput}
+        <br/> 
+         <Validation storyLength={this.state.storyInput.length}/>
       </div>
     );
   }
