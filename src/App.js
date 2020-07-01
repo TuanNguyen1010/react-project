@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person'
 import Validation from './Validation/validation'
+import Char from './Char/char'
 
 class App extends Component {
   state = {
@@ -10,7 +11,7 @@ class App extends Component {
       { id: 2, name: 'John', hobbies: 'tennis'}
     ],
     showPersons: true,
-    storyInput: ""
+    storyInput: ''
   }
 
   togglePersonState = () => {
@@ -47,7 +48,7 @@ class App extends Component {
 
   render() {
 
-    let persons = null;
+    let persons = null
     if (this.state.showPersons) {
     persons = (
       <div>
@@ -60,6 +61,7 @@ class App extends Component {
           change={(event) =>{ this.changeNameHandler(event, person.id )}} /> )
         )}
         </div>)}
+
 
     return (
       <div className="App">
@@ -74,8 +76,11 @@ class App extends Component {
           type="text" 
           onChange={(event) => this.storyInputHandler(event)}/>
         <br/> 
-        {this.state.storyInput}
-        <br/> 
+        {this.state.storyInput.split().map((letter, index)=> (
+          <Char text={letter}/>
+        ))}
+      
+        <br/>
          <Validation storyLength={this.state.storyInput.length}/>
       </div>
     );
