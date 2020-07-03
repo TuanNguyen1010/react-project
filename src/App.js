@@ -46,7 +46,22 @@ class App extends Component {
     this.setState({storyInput: event.target.value})
   }
 
+  deleteStoryHandler = (letterIndex) => {
+    const fullStory = [...this.state.storyInput]
+    fullStory.splice(letterIndex, 1)
+    console.log('fullstory is: ' + fullStory.join(''))
+    this.setState({storyInput: fullStory.join('')})
+  }
+
   render() {
+    
+    const style = {
+      display: 'inline-block', 
+      padding: '16px',
+      textAlign: 'center',
+      margin: '16px',
+      border: '1px solid black'
+    }
 
     let persons = null
     if (this.state.showPersons) {
@@ -62,6 +77,9 @@ class App extends Component {
         )}
         </div>)}
 
+    let storyOutput = [...this.state.storyInput]
+
+
 
     return (
       <div className="App">
@@ -73,13 +91,18 @@ class App extends Component {
 
         <br/> 
         <input 
-          type="text" 
+          type="text"
+          value={this.state.storyInput}
           onChange={(event) => this.storyInputHandler(event)}/>
         <br/> 
-        {this.state.storyInput.split().map((letter, index)=> (
-          <Char text={letter}/>
+        {storyOutput.map((letter, index) => (
+        <div
+        style={style}>
+          <Char text={letter}
+          click={() => this.deleteStoryHandler(index)}
+          />
+        </div>
         ))}
-      
         <br/>
          <Validation storyLength={this.state.storyInput.length}/>
       </div>

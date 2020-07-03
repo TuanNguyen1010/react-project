@@ -1,18 +1,9 @@
 import React from 'react'
 
 const char = (props) => {
-  
-  const style = {
-    display: 'inline-block', 
-    padding: '16px',
-    textAlign: 'center',
-    margin: '16px',
-    border: '1px solid black'
-  }
   return( 
-    <div
-    style={style}> 
-      {props.text}
+    <div> 
+      <p onClick={props.click}>{props.text} </p>
     </div>
   )
 }
