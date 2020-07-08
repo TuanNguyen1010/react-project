@@ -10,7 +10,7 @@ class App extends Component {
       { id: 1, name: 'Danny', hobbies:'golf'},
       { id: 2, name: 'John', hobbies: 'tennis'}
     ],
-    showPersons: true,
+    showPersons: false,
     storyInput: ''
   }
 
@@ -64,7 +64,8 @@ class App extends Component {
     }
 
     const buttonStyle = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue', 
       padding: '8px', 
@@ -83,7 +84,9 @@ class App extends Component {
           key={person.id}
           change={(event) =>{ this.changeNameHandler(event, person.id )}} /> )
         )}
-        </div>)}
+        </div>)
+      buttonStyle.backgroundColor = 'red'  
+      }
 
     let storyOutput = [...this.state.storyInput]
 
