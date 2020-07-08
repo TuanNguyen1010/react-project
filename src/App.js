@@ -55,12 +55,20 @@ class App extends Component {
 
   render() {
     
-    const style = {
+    const storyStyle = {
       display: 'inline-block', 
       padding: '16px',
       textAlign: 'center',
       margin: '16px',
       border: '1px solid black'
+    }
+
+    const buttonStyle = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue', 
+      padding: '8px', 
+      cursor: 'pointer'
     }
 
     let persons = null
@@ -86,7 +94,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <button onClick={this.togglePersonState}> Toggle Name</button>
+        <button 
+        style={buttonStyle}
+        onClick={this.togglePersonState}> Toggle Name</button>
         {persons}
 
         <br/> 
@@ -97,7 +107,7 @@ class App extends Component {
         <br/> 
         {storyOutput.map((letter, index) => (
         <div
-        style={style}>
+        style={storyStyle}>
           <Char text={letter}
           click={() => this.deleteStoryHandler(index)}
           />
