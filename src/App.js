@@ -41,7 +41,6 @@ class App extends Component {
 
     this.setState({ persons: persons})
   }
-
   storyInputHandler = (event) => {
     this.setState({storyInput: event.target.value})
   }
@@ -91,13 +90,13 @@ class App extends Component {
 
     let storyOutput = [...this.state.storyInput]
 
-
-
+    let classes = [ 'red', 'bold'].join(' ')
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
+        <p className={classes}> Working App! </p>
         <button 
         style={buttonStyle}
         onClick={this.togglePersonState}> Toggle Name</button>
