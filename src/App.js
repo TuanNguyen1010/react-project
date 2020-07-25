@@ -7,9 +7,15 @@ import Home from './pages/Home';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App">
+        <header className="App-header">
+          <h1 className="App-title">Welcome to React</h1>
+          <Router>
+          <Link  to='/story'> Story game</Link>
+          </Router>
+        </header>
         <Router>
-          <Route path='/' render={() => <Home/>}/>
+          <Route path='/' exact render={() => <Home/>}/>
           <Route path='/story' render={() => <Story/>}/>
          </Router>
       </div>

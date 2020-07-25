@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Person from '../Person/Person'
-import Validation from '../Validation/validation'
-import Char from '../Char/char'
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 
 class Home extends Component {
@@ -42,28 +40,9 @@ class Home extends Component {
 
     this.setState({ persons: persons})
   }
-  storyInputHandler = (event) => {
-    this.setState({storyInput: event.target.value})
-  }
-
-  deleteStoryHandler = (letterIndex) => {
-    const fullStory = [...this.state.storyInput]
-    fullStory.splice(letterIndex, 1)
-    console.log('fullstory is: ' + fullStory.join(''))
-    this.setState({storyInput: fullStory.join('')})
-  }
 
   render() {
-    
-    const storyStyle = {
-      display: 'inline-block', 
-      padding: '16px',
-      textAlign: 'center',
-      margin: '16px',
-      border: '1px solid black',
-      cursor: 'pointer'
-    }
-
+  
     const buttonStyle = {
       backgroundColor: 'green',
       color: 'white',
@@ -88,40 +67,14 @@ class Home extends Component {
         </div>)
       buttonStyle.backgroundColor = 'red'  
       }
-
-    let storyOutput = [...this.state.storyInput]
-
     let classes = [ 'red', 'bold'].join(' ')
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-          <Router>
-          <Link  to='/story'> Story game</Link>
-          </Router>
-        </header>
+      <div className="Home">
         <p className={classes}> Working App! </p>
         <button 
         style={buttonStyle}
         onClick={this.togglePersonState}> Toggle Name</button>
         {persons}
-
-        <br/> 
-        <input 
-          type="text"
-          value={this.state.storyInput}
-          onChange={(event) => this.storyInputHandler(event)}/>
-        <br/> 
-        {storyOutput.map((letter, index) => (
-        <div
-        style={storyStyle}>
-          <Char text={letter}
-          click={() => this.deleteStoryHandler(index)}
-          />
-        </div>
-        ))}
-        <br/>
-         <Validation storyLength={this.state.storyInput.length}/>
       </div>
     );
   }
