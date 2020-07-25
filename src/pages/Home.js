@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import Person from '../Person/Person'
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import Person from '../components/Persons/Person/Person'
 
 class Home extends Component {
   state = {
