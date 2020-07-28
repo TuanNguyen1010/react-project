@@ -64,10 +64,8 @@ class Home extends Component {
         </div>)
       buttonStyle.backgroundColor = 'red'  
       }
-    let classes = [ 'red', 'bold'].join(' ')
     return (
       <div className="Home">
-        <p className={classes}> Working App! </p>
         <button 
         style={buttonStyle}
         onClick={this.togglePersonState}> Toggle Name</button>
