@@ -18,6 +18,19 @@ class Home extends Component {
     return state
   }
 
+  componentDidMount(){
+    console.log('[App.js] componentDidMount')
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    console.log('[App.js] shouldComponentUpdate')
+    return true
+  }
+
+  componentDidUpdate() {
+    console.log('[App.js] componentDidUpdate')
+  }
+
   togglePersonState = () => {
     const doesShow = this.state.showPersons
     this.setState({showPersons: !doesShow})
