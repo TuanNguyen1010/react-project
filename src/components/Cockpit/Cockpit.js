@@ -9,7 +9,7 @@ const cockpit = () => {
     <h1 className="App-title">Welcome to React</h1>
     <p className={classes}> Working App! </p>
     <Router>
-    <Link  to='/story'> Story game</Link>
+    <Link to='/story'> Story game</Link>
     </Router>
   </header>
 
