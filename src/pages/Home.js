@@ -13,6 +13,11 @@ class Home extends Component {
     storyInput: ''
   }
 
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps')
+    return state
+  }
+
   togglePersonState = () => {
     const doesShow = this.state.showPersons
     this.setState({showPersons: !doesShow})
