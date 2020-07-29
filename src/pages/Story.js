@@ -1,6 +1,7 @@
 import React, {Component } from 'react'
 import Char from '../Char/char'
 import Validation from '../Validation/validation'
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class Story extends Component {
   state = {
@@ -31,9 +32,7 @@ class Story extends Component {
 
     return(
       <div> 
-        HELLO WORLD
-
-        <br/>
+        <Cockpit/>
       <input 
           type="text"
           value={this.state.storyInput}

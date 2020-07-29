@@ -1,8 +1,17 @@
-import React from 'react'
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import React, {useEffect} from 'react'
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 
-const cockpit = () => {
+const cockpit = (props) => {
+
+  useEffect(() => {
+    // Fake Http Requests
+    console.log('[Cockpit.js] useEffect')
+    setTimeout(() =>{
+      alert('saved data to DB')
+    }, 1000)
+  },[props.persons])
+
   let classes = [ 'red', 'bold'].join(' ')
   return (
     <header className="App-header">

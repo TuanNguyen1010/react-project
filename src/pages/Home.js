@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Persons from '../components/Persons/Persons'
-
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class Home extends Component {
   state = {
@@ -14,21 +14,21 @@ class Home extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log('[App.js] getDerivedStateFromProps')
+    console.log('[Home.js] getDerivedStateFromProps')
     return state
   }
 
   componentDidMount(){
-    console.log('[App.js] componentDidMount')
+    console.log('[Home.js] componentDidMount')
   }
 
   shouldComponentUpdate(nextProps, nextState){
-    console.log('[App.js] shouldComponentUpdate')
+    console.log('[Home.js] shouldComponentUpdate')
     return true
   }
 
   componentDidUpdate() {
-    console.log('[App.js] componentDidUpdate')
+    console.log('[Home.js] componentDidUpdate')
   }
 
   togglePersonState = () => {
@@ -84,6 +84,7 @@ class Home extends Component {
       }
     return (
       <div className="Home">
+        <Cockpit/>
         <button 
         style={buttonStyle}
         onClick={this.togglePersonState}> Toggle Name</button>
